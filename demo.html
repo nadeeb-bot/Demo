@@ -1,0 +1,177 @@
+<!DOCTYPE html>
+<html lang="th">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Anatomy Terminology</title>
+    <link href="Cssdemo.css" rel="stylesheet">
+   
+</head>
+
+<body>
+    <!--- wrapper หลักของเนื้อหาทั้งหมด --->
+<div class="wrapper">
+
+    <!--- แถบนำทาง (Navbar) --->
+    <nav class="navbar">
+
+        <!--- ส่วนซ้าย: โลโก้ + ชื่อเว็บ --->
+        <div class="navbar-left">
+
+            <!--- ไอคอนกระดูก SVG --->
+            <div class="logo">
+				<span class="logo-icon">🦴</span>	
+			</div>
+
+            <!--- ชื่อเว็บไซต์ --->
+            <div class="site-title">Anatomy Terminology</div>
+        </div>
+
+        <!--- ส่วนขวา: ปุ่ม Profile และ Search --->
+        <div class="navbar-right">
+
+            <!--- ปุ่ม Profile --->
+            <div class="nav-icon-text">
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#5a8fa3" stroke-width="2">
+                    <circle cx="12" cy="8" r="4"/>
+                    <path d="M4 20c0-4 3.6-7 8-7s8 3 8 7"/>
+                </svg>PROFILE
+            </div>
+
+            <!--- เส้นคั่น --->
+            <span class="nav-divider">|</span>
+
+            <!--- ปุ่ม Search --->
+            <div class="nav-icon-text">
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#5a8fa3" stroke-width="2">
+                    <circle cx="11" cy="11" r="7"/>
+                    <line x1="16.5" y1="16.5" x2="22" y2="22"/>
+                </svg>
+                SEARCH
+            </div>
+        </div>
+    </nav>
+
+    <!--- แถบแท็บเมนูหลัก --->
+    <div class="tab-bar">
+        <a class="tab-btn active" href="demo.html">HOME</a>
+        <a class="tab-btn" href="Short_page/Shortnotepag.html">SHORT NOTES</a>
+        <button class="tab-btn" onclick="setActive(this)">FLASH CARDS</button>
+        <button class="tab-btn" onclick="setActive(this)">MEMORY GAME</button>
+        <a class="tab-btn" href="Test_page/Testpage.html">TEST</a>
+        <a class="tab-btn" href="https://app.lumi.education/run/iy13pS">VOCABULARY</a>
+    </div>
+
+    <!--- กล่องเนื้อหาหลัก (3 คอลัมน์) --->
+    <div class="content-card">
+            <!--- คอลัมน์ซ้าย: Quick Notes --->
+        <div class="col-left">
+            <!-- ===== กล่องปฏิทินขนาดเล็ก ===== -->
+                <div class="mini-calendar">
+
+                    <!-- หัวปฏิทิน: ชื่อเดือน + ปุ่มเลื่อน -->
+                    <div class="cal-header">
+                        <span class="cal-title" id="calTitle">Calander</span>
+                        <div class="cal-nav">
+                            <button id="prevBtn">‹</button> <!-- เดือนก่อนหน้า -->
+                            <button id="nextBtn">›</button> <!-- เดือนถัดไป -->
+                            <button id="closeBtn" onclick="closeCalender()">❌</button><!-- ปิด -->
+                        </div>
+                    </div>
+
+                    <!-- ตารางวันที่ (สร้างโดย JS) -->
+                    <div class="cal-grid" id="calGrid">
+                    </div>
+
+                </div>
+
+            <!--- ปุ่มเปิด Quick Notes (วางไว้นอกกล่อง quick-notes) --->
+            <button class="open-notes-btn" id="openNotesBtn" onclick="openQuickNotes()" style="display:none;">
+                📝 
+            </button>
+            <!--- กล่อง Quick Notes --->
+            <div class="quick-notes" id="quickNotes">
+
+                <!--- หัวข้อและปุ่มปิด --->
+                <div class="quick-notes-header">
+                    <h3>Quick Notes</h3>
+                    <button class="close-btn" onclick="closeQuickNotes()">✕</button>
+                </div>
+            <!--- พื้นที่พิมพ์โน้ต --->
+                <textarea 
+                    class="notes-input" 
+                    id="notesInput"
+                    placeholder="Type your notes here...">
+                </textarea>
+            <!--- แถบเครื่องมือด้านล่าง --->
+                <div class="notes-toolbar">
+
+                    <!--- ปุ่มเพิ่มโน้ต --->
+                    <button class="add-note-btn" onclick="addNote()">+ Add Note</button>
+
+                    <!--- ปุ่มล้างข้อความ --->
+                    <button class="clear-btn" onclick="clearInput()">🗑 Clear</button>
+
+                </div>
+
+                <!--- รายการโน้ตที่บันทึกแล้ว --->
+                <div class="notes-list" id="notesList"></div>
+            </div>
+        </div>
+
+
+         <!-- คอลัมน์กลาง -->
+        <div class="col-center" >
+            <div class="card">
+                
+
+        <div class="col-right">
+            <div class="mood-box" id="moodBox">
+                <div class="mood-box-header">
+            <h3>Mood Rating</h3>
+            <button type="button" class="close-btn" onclick="closeMoodBox()">✕</button>
+        </div>
+
+        <div class="mood-options">
+            <button onclick="selectMood('😀')">😀</button>
+            <button onclick="selectMood('😊')">😊</button>
+            <button onclick="selectMood('😐')">😐</button>
+            <button onclick="selectMood('😢')">😢</button>
+            <button onclick="selectMood('😡')">😡</button>
+        </div>
+
+        <p id="selectedMoodText" class="selected-mood-text">Selected mood: None</p>
+
+        <label for="moodScore" class="mood-label">Score (1-5):</label>
+        <select id="moodScore" class="mood-select">
+            <option value="1">1</option>
+            <option value="2">2</option>
+            <option value="3">3</option>
+            <option value="4">4</option>
+            <option value="5">5</option>
+        </select>
+
+        <textarea id="moodNote" class="mood-input" placeholder="How are you feeling today?"></textarea>
+
+        <div class="mood-toolbar">
+            <button class="add-note-btn" onclick="saveMood()">+ Save Mood</button>
+            <button class="clear-btn" onclick="clearMood()">🗑 Clear</button>
+        </div>
+
+        <div class="mood-list" id="moodList"></div>
+    </div>
+</div>
+
+        <!-- ปุ่มเปิด Mood Box -->
+        <button class="open-mood-btn" id="openMoodBtn" onclick="openMoodBox()" style="display:none;">😊</button> 
+        </div>
+    </div>
+</div>
+
+</div>
+
+<script src="JavaDemo.js"></script>
+</body>
+</html>
+
+            

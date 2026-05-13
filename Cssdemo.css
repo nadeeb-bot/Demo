@@ -1,0 +1,725 @@
+/* style.css */
+
+/* ===== รีเซ็ต CSS พื้นฐาน ===== */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+body{
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background-color: #f5ede0;
+            min-height: 100vh;
+            position: relative;
+            overflow-x: hidden;
+        }
+
+
+        /* ===== wrapper หลักของเนื้อหา ===== */
+        .wrapper {
+            position: relative;
+            z-index: 1;
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 20px 40px;
+        }
+
+        /* ===== แถบนำทาง (Navbar) ===== */
+        .navbar {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 15px 0;
+            margin-bottom: 20px;
+        }
+
+        /* ===== ส่วนซ้ายของ Navbar (โลโก้ + ชื่อ) ===== */
+        .navbar-left {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+        }
+
+        /* ===== ไอคอนโลโก้กระดูก ===== */
+        .logo-icon {
+            width: 60px;
+            height: 60px;
+        }
+
+        /* ===== ชื่อเว็บไซต์ ===== */
+        .site-title {
+            font-size: 2.4rem;
+            font-weight: 700;
+            color: #5a8fa3;
+            letter-spacing: 1px;
+        }
+
+        /* ===== ส่วนขวาของ Navbar (Profile + Search) ===== */
+        .navbar-right {
+            display: flex;
+            align-items: center;
+            background-color: rgba(255, 255, 255, 0.7);
+            border-radius: 50px;
+            padding: 12px 25px;
+            gap: 10px;
+            backdrop-filter: blur(5px);
+            box-shadow: 0 2px 10px rgba(0,0,0,0.08);
+        }
+
+        /* ===== ไอคอนและข้อความใน Navbar ===== */
+        .nav-icon-text {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            color: #5a8fa3;
+            font-size: 1rem;
+            font-weight: 600;
+            letter-spacing: 1px;
+            cursor: pointer;
+        }
+
+        /* ===== เส้นคั่นระหว่าง Profile และ Search ===== */
+        .nav-divider {
+            color: #aaa;
+            font-size: 1.1rem;
+            padding: 0 5px;
+        }
+
+        /* ===== แถบแท็บเมนู (Tab Navigation) ===== */
+        .tab-bar {
+            background-color: rgba(255, 255, 255, 0.55);
+            border-radius: 50px;
+            padding: 8px 10px;
+            display: flex;
+            align-items: center;
+            justify-content: space-around;
+            margin-bottom: 30px;
+            backdrop-filter: blur(8px);
+            box-shadow: 0 2px 10px rgba(0,0,0,0.06);
+        }
+
+        /* ===== ปุ่มแท็บแต่ละปุ่ม ===== */
+        .tab-btn {
+            padding: 12px 30px;
+            border: none;
+            border-radius: 50px;
+            cursor: pointer;
+            font-size: 1rem;
+            font-weight: 700;
+            color: #5a8fa3;
+            background: transparent;
+            letter-spacing: 1px;
+            transition: all 0.3s ease;
+            
+            
+         /* ===== เพิ่ม: ทำให้ปุ่มทุกปุ่มเหมือนกัน ===== */
+            text-decoration: none;
+            font-family: inherit;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            white-space: nowrap;
+            -webkit-font-smoothing: antialiased;
+        }
+
+        /* ===== ปุ่มแท็บที่ถูกเลือก (active) ===== */
+        .tab-btn.active {
+            background: linear-gradient(180deg, #c8e6f5 0%, #a8d4ee 100%);
+            color: #2e6a8a;
+            box-shadow: 0 3px 10px rgba(100, 180, 220, 0.4);
+            text-decoration: none;   /* ===== ลบเส้นใต้ตอน active ===== */
+        }
+
+        /* ===== เอฟเฟกต์ hover ปุ่มแท็บ ===== */
+        .tab-btn:hover:not(.active) {
+            background-color: rgba(200, 230, 245, 0.4);
+            text-decoration: none;   /* ===== ลบเส้นใต้ตอน active ===== */
+            color: #5a8fa3;       /* ===== คงสีตัวอักษรเดิม ===== */
+        }
+        /* ===== hover ปุ่มที่ active อยู่ ===== */
+            .tab-btn.active:hover {
+                background: linear-gradient(180deg, #c8e6f5 0%, #a8d4ee 100%);
+                color: #2e6a8a;                 /* ===== คงสีตัวอักษร active ===== */
+            }
+
+            /* ===== ลบสีม่วงของลิงค์ที่เคยเข้าชมแล้ว ===== */
+            .tab-btn:visited {
+                color: #5a8fa3;
+                text-decoration: none;
+            }
+
+            /* ===== ลบ outline ตอนคลิก ===== */
+            .tab-btn:focus {
+                outline: none;
+                text-decoration: none;
+            }
+
+        /* ===== กล่องเนื้อหาหลัก ===== */
+        .content-card {
+            background-color: rgba(255, 255, 255, 0.75);
+            border-radius: 25px;
+            padding: 30px;
+            box-shadow: 0 4px 20px rgba(0,0,0,0.08);
+            display: grid;
+            grid-template-columns: 1fr 1.8fr 1fr;
+            gap: 20px;
+            min-height: 420px;
+            width: 100%;
+            backdrop-filter: blur(10px);
+            position: relative;
+        }
+
+        /* ===== คอลัมน์ซ้าย: Quick Notes ===== */
+        .col-left {
+            display: flex;
+            flex-direction: column;
+            justify-content: flex-end;
+            position: relative;
+        }
+        /* ===== กล่องปฏิทินขนาดเล็ก ===== */
+        .mini-calendar {
+            backdrop-filter: blur(8px);
+            box-shadow: rgba(100, 180, 220, 0.2) 0px 4px 20px;
+            background: rgba(255, 255, 255, 0.85);
+            border-radius: 20px;
+            padding: 20px;
+        }
+
+        /* ===== ส่วนหัวของปฏิทิน (ชื่อเดือน + ปุ่มเลื่อน) ===== */
+        .cal-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 14px;
+        }
+
+        /* ===== ชื่อเดือนและปี ===== */
+        .cal-title {
+            font-size: 1rem;
+            font-weight: 700;
+            color: #0c5179;
+        }
+
+        /* ===== ปุ่มเลื่อนเดือนก่อนหน้า / ถัดไป ===== */
+        .cal-nav button {
+            background: none;
+            border: none;
+            cursor: pointer;
+            color: #5a8fa3;
+            font-size: 1rem;
+            padding: 2px 8px;
+            border-radius: 8px;
+            transition: background 0.2s;
+        }
+
+        /* ===== hover ปุ่มเลื่อนเดือน ===== */
+        .cal-nav button:hover {
+            background: rgba(100, 180, 220, 0.15);
+        }
+
+        /* ===== ตาราง 7 คอลัมน์สำหรับวันในเดือน ===== */
+        .cal-grid {
+            display: grid;
+            grid-template-columns: repeat(7, 1fr);
+            gap: 4px;
+            text-align: center;
+        }
+
+        /* ===== หัวแถวชื่อวัน (อา จ อ พ พฤ ศ ส) ===== */
+        .cal-day-name {
+            font-size: 0.72rem;
+            color: #5a8fa3;
+            font-weight: 600;
+            padding: 4px 0;
+        }
+
+        /* ===== ช่องวันที่แต่ละวัน ===== */
+        .cal-cell {
+            font-size: 0.82rem;
+            color: #2e6a8a;
+            padding: 5px 2px;
+            border-radius: 8px;
+            cursor: pointer;
+            transition: background 0.2s;
+        }
+
+        /* ===== hover วันที่ ===== */
+        .cal-cell:hover {
+            background: rgba(100, 180, 220, 0.18);
+        }
+
+        /* ===== วันที่ปัจจุบัน (highlight) ===== */
+        .cal-cell.today {
+            background: linear-gradient(180deg, #c8e6f5, #a8d4ee);
+            font-weight: 700;
+            color: #0c5179;
+        }
+
+        /* ===== วันที่เดือนก่อน/หน้า (แสดงจางๆ) ===== */
+        .cal-cell.other {
+            color: #bcd4e0;
+        }
+       
+        .open-calader-btn {
+            position: fixed;
+            right: 30px;
+            bottom: 105px; /* ขยับขึ้นจากปุ่ม notes */
+            width: 60px;
+            height: 60px;
+            border: none;
+            border-radius: 50%;
+            background: linear-gradient(180deg, #c8e6f5, #a8d4ee);
+            color: #2e6a8a;
+            font-size: 28px;
+            cursor: pointer;
+            box-shadow: 0 8px 20px rgba(100, 180, 220, 0.35);
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;         /* จัดไอคอนให้อยู่ตรงกลาง */
+            transition: all 0.25s ease;
+            z-index: 999;                     /* ลอยอยู่เหนือ element อื่นๆ */
+        }
+        .open-calader-btn:hover {
+            transform: scale(1.1);
+            box-shadow: 0 6px 20px rgba(100, 180, 220, 0.6);
+        }
+         /* ===== ปุ่มปิด Quick Notes ===== */
+        .close-btn {
+            background: none;
+            border: none;
+            font-size: 1.2rem;
+            color: #999;
+            cursor: pointer;
+            line-height: 1;
+        }
+        
+        /* ===== หัวข้อ Quick Notes ===== */
+        .quick-notes-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 12px;
+        }
+
+        /* ===== ชื่อ Quick Notes ===== */
+        .quick-notes h3 {
+            font-size: 1.1rem;
+            font-weight: 700;
+            color: #0c5179;
+        }
+
+        /* ===== ปุ่มปิด Quick Notes ===== */
+        .close-btn {
+            background: none;
+            border: none;
+            font-size: 1.2rem;
+            color: #999;
+            cursor: pointer;
+            line-height: 1;
+        }
+
+        /* ===== ข้อความใน Quick Notes ===== */
+        .quick-notes p {
+            font-size: 0.9rem;
+            color: #666;
+            margin-bottom: 15px;
+        }
+
+        /* ===== แท็กใน Quick Notes ===== */
+        .note-tag {
+            display: inline-flex;
+            align-items: center;
+            gap: 6px;
+            background-color: #e8f4f8;
+            color: #5a8fa3;
+            border-radius: 50px;
+            padding: 6px 12px;
+            font-size: 0.85rem;
+            font-weight: 500;
+        }
+        /* ===== ปุ่มเปิด Quick Notes ===== */
+        .open-notes-btn {
+            position: fixed;
+        right: 30px;
+        bottom: 30px;
+        width: 60px;
+        height: 60px;
+        border: none;
+        border-radius: 50%;
+        background: linear-gradient(180deg, #ffd6e7, #f4fc85);
+        font-size: 28px;
+        cursor: pointer;
+        box-shadow: 0 8px 20px rgba(255, 182, 193, 0.35);
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        z-index: 999;
+        }
+
+        .open-notes-btn:hover {
+            transform: scale(1.1);
+            box-shadow: 0 6px 20px rgba(100, 180, 220, 0.6);
+        }
+        
+        /* ===== กล่อง Quick Notes ===== */
+        .quick-notes {
+            backdrop-filter: blur(8px);
+            box-shadow: rgba(100, 180, 220, 0.2) 0px 4px 20px;
+            display: flex;
+            flex-direction: column;
+            background: rgba(255, 255, 255, 0.85);
+            border-radius: 20px;
+            padding: 20px;
+            gap: 12px;
+            transition: 0.3s;
+        }
+
+        /* ===== กล่องพิมพ์โน้ต ===== */
+        .notes-input {
+            width: 100%;
+            min-height: 100px;
+            padding: 12px;
+            border: 1.5px solid rgba(100, 180, 220, 0.3);
+            border-radius: 12px;
+            background: rgba(255, 255, 255, 0.8);
+            color: #2e6a8a;
+            font-size: 0.9rem;
+            font-family: inherit;
+            resize: vertical;
+            outline: none;
+            transition: border 0.3s ease;
+            box-sizing: border-box;
+        }
+
+        .notes-input::placeholder {
+            color: #3ab7e9;
+        }
+
+        /* ===== แถบเครื่องมือด้านล่าง ===== */
+        .notes-toolbar {
+            display: flex;
+            gap: 8px;
+            justify-content: flex-end;
+        }
+
+        /* ===== ปุ่ม Add Note ===== */
+        .add-note-btn {
+            padding: 8px 16px;
+            background: linear-gradient(180deg, #c8e6f5 0%, #a8d4ee 100%);
+            border: none;
+            border-radius: 50px;
+            color: #2e6a8a;
+            font-size: 0.85rem;
+            font-weight: 700;
+            cursor: pointer;
+            font-family: inherit;
+            transition: all 0.3s ease;
+            box-shadow: 0 2px 8px rgba(100, 180, 220, 0.3);
+        }
+
+        .add-note-btn:hover {
+            box-shadow: 0 4px 12px rgba(100, 180, 220, 0.5);
+            transform: translateY(-1px);
+        }
+
+        /* ===== ปุ่ม Clear ===== */
+        .clear-btn {
+            padding: 8px 16px;
+            background: rgba(255, 255, 255, 0.8);
+            border: 1.5px solid rgba(100, 180, 220, 0.3);
+            border-radius: 50px;
+            color: #5a8fa3;
+            font-size: 0.85rem;
+            font-weight: 700;
+            cursor: pointer;
+            font-family: inherit;
+            transition: all 0.3s ease;
+        }
+
+        .clear-btn:hover {
+            background: rgba(200, 230, 245, 0.4);
+            color: #2e6a8a;
+        }
+
+        /* ===== รายการโน้ตที่บันทึกแล้ว ===== */
+        .notes-list {
+            display: flex;
+            flex-direction: column;
+            gap: 8px;
+            max-height: 200px;
+            overflow-y: auto;
+        }
+
+        /* ===== โน้ตแต่ละชิ้น ===== */
+        .note-item {
+            background: rgba(200, 230, 245, 0.3);
+            border-radius: 12px;
+            padding: 10px 14px;
+            font-size: 0.85rem;
+            color: #2e6a8a;
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-start;
+            gap: 8px;
+            border: 1px solid rgba(100, 180, 220, 0.2);
+            animation: fadeIn 0.2s ease;
+        }
+        /* ===== animation โน้ตใหม่ ===== */
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(5px); }
+            to   { opacity: 1; transform: translateY(0); }
+        }
+
+        .note-item span {
+            flex: 1;
+            word-break: break-word;
+            line-height: 1.6;
+        }
+
+        /* ===== ปุ่มลบโน้ต ===== */
+        .delete-note-btn {
+            background: none;
+            border: none;
+            cursor: pointer;
+            color: #a8c8d8;
+            font-size: 0.85rem;
+            padding: 0 4px;
+            transition: color 0.2s ease;
+            flex-shrink: 0;
+        }
+
+        .delete-note-btn:hover {
+            color: #e08080;
+        }
+        
+        .logo-icon{
+            font-size: 50px;
+            display: inline-block;
+            animation: float 3s ease-in-out infinite;
+        }
+
+        @keyframes float {
+            0%, 100% { transform: translateY(0); }
+            50%      { transform: translateY(-12px); }
+        }
+        
+
+        /* ===== คอลัมน์ขวา: Interactive Quiz ===== */
+        .col-right {
+        display: flex;
+        flex-direction: column;
+        justify-content: flex-start;
+        align-items: stretch;
+        position: relative;
+        }
+        /* ===== กล่องหลักสำหรับบันทึกอารมณ์ ===== */
+        .mood-box {
+             width: 100%;
+            max-width: 100%;                        /* ความกว้างสูงสุดของกล่อง */
+            background: #ffffff;                   /* พื้นหลังสีขาว */
+            border-radius: 24px;                      /* มุมโค้งมน */
+            padding: 26px;                             /* ระยะห่างภายใน */
+            box-shadow: 0 10px 30px rgba(122, 169, 201, 0.15);
+            border: 1px solid rgba(191, 224, 245, 0.5);   /* ขอบโปร่งแสงสีฟ้า */
+             flex: 1; /* เพิ่มตรงนี้ */
+        }
+        /* ===== ส่วนหัวของกล่องอารมณ์ ===== */
+        .mood-box-header {
+            display: flex;
+            justify-content: space-between;  /* แยกหัวข้อและปุ่มปิดออกจากกัน */
+            align-items: center;
+            margin-bottom: 22px;            /* ระยะห่างด้านล่าง */
+        }
+        /* ===== หัวข้อในส่วนหัว ===== */
+        .mood-box-header h3 {
+            margin: 0;
+            font-size: 32px;           /* ขนาดตัวอักษรใหญ่ */
+            font-weight: 700;
+            color: #2f6d95;
+        }
+        /* ===== ปุ่มปิดกล่องอารมณ์ ===== */
+        .mood-box-header .close-btn {
+            background: none;
+            border: none;
+            font-size: 1rem;
+            color: #5a8fa3;
+            cursor: pointer;
+            padding: 4px 8px; 
+            border-radius: 50%;         /* ทำให้เป็นวงกลม */
+            transition: all 0.2s ease;  /* เอฟเฟกต์เปลี่ยนแปลงเรียบ */
+            font-family: inherit;
+        }
+        /* ===== ปุ่มปิด เมื่อ hover ===== */
+        .mood-box-header .close-btn:hover {
+            color: #2e6a8a;                     /* สีเข้มขึ้นเมื่อเอาเมาส์ชี้ */
+            background: rgba(100, 180, 220, 0.15);/* พื้นหลังฟ้าจางๆ */
+        }
+        /* ===== ปุ่มปิด เมื่อ hover (global) ===== */
+        .close-btn:hover {
+            color: #4f86ac;
+            transform: scale(1.1);       /* ขยายขนาดเล็กน้อยเมื่อ hover */  
+        }
+        /* ===== กลุ่มปุ่มเลือกอารมณ์ (Emoji) ===== */
+        .mood-options {
+            display: flex;
+            gap: 12px;                         /* ระยะห่างระหว่างปุ่ม */
+            justify-content: space-between;
+            margin-bottom: 18px;
+            flex-wrap: wrap;                  /* ตัดบรรทัดเมื่อพื้นที่ไม่พอ */
+        }
+        /* ===== ปุ่ม Emoji แต่ละอัน ===== */
+        .mood-options button {
+            width: 56px;
+            height: 56px;
+            border: 1px solid #d7ecfa;
+            background: #f8fcff;
+            border-radius: 50%;
+            font-size: 26px;          /* ขนาด Emoji */
+            cursor: pointer;
+            transition: all 0.25s ease;
+            box-shadow: 0 4px 12px rgba(143, 193, 223, 0.12);
+        }
+        /* ===== ปุ่ม Emoji เมื่อ hover ===== */
+        .mood-options button:hover {
+            transform: translateY(-3px);              /* ลอยขึ้นเล็กน้อย */
+            background: #eaf7ff;
+            box-shadow: 0 8px 18px rgba(143, 193, 223, 0.25);
+        }
+        /* ===== ข้อความแสดงอารมณ์ที่เลือก ===== */
+        .selected-mood-text {
+            color: #6f9bb8;
+            font-size: 16px;
+            margin-bottom: 16px;
+        }
+        /* ===== Label สำหรับ Dropdown ===== */
+        .mood-label {
+            display: block;
+            margin-bottom: 8px;
+            color: #4e7fa0;
+            font-weight: 600;
+        }
+        /* ===== Dropdown เลือกประเภทอารมณ์ ===== */
+        .mood-select {
+            width: 100%;
+            padding: 12px 14px;
+            border: 1.5px solid #cfe8f8;
+            border-radius: 14px;
+            outline: none;
+            font-size: 15px;
+            color: #4d6f87;
+            background: #fcfeff;
+            margin-bottom: 16px;
+        }
+        /* ===== ช่องพิมพ์บันทึกอารมณ์ (Textarea) ===== */
+        .mood-input {
+            width: 100%;
+            min-height: 130px;  /* ความสูงขั้นต่ำ */
+            resize: vertical;     /* ปรับขนาดได้เฉพาะแนวตั้ง */
+            padding: 18px;
+            font-size: 16px;
+            color: #4d6f87;
+            border: 1.5px solid #bfe1f5;
+            border-radius: 16px;
+            outline: none;
+            background: #ffffff;
+            box-sizing: border-box;  /* รวม padding ในการคำนวณขนาด */
+            transition: 0.25s ease;
+        }
+        /* ===== Placeholder ของช่องพิมพ์ ===== */
+        .mood-input::placeholder {
+            color: #a8c8dd;
+        }
+        /* ===== เอฟเฟกต์เมื่อ focus ที่ช่องพิมพ์และ Dropdown ===== */
+        .mood-input:focus,
+        .mood-select:focus {
+            border-color: #8fc5e8;
+            box-shadow: 0 0 0 4px rgba(143, 197, 232, 0.15); /* เงา glow รอบขอบ */
+        }
+        /* ===== แถบเครื่องมือด้านล่าง (ปุ่ม Save / Clear) ===== */
+        .mood-toolbar {
+            display: flex;
+            justify-content: center;
+            gap: 14px;
+            margin-top: 18px;
+            flex-wrap: wrap;
+        }
+        /* ===== สไตล์ร่วมของปุ่ม Save และ Clear ===== */
+        .add-note-btn,
+        .clear-btn {
+            padding: 12px 24px;
+            border-radius: 999px;
+            font-size: 16px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.25s ease;
+        }
+        /* ===== ปุ่มบันทึกโน้ต ===== */
+        .add-note-btn {
+            background: linear-gradient(180deg, #bfe5ff, #9cd1f2);
+            color: #2f6d95;
+            border: none;
+            box-shadow: 0 6px 16px rgba(120, 180, 220, 0.35);
+        }
+        /* ===== ปุ่มบันทึก เมื่อ hover ===== */
+        .add-note-btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 10px 20px rgba(120, 180, 220, 0.4);
+        }
+        /* ===== ปุ่มล้างข้อมูล ===== */
+        .clear-btn {
+            background: #ffffff;
+            color: #5d8aa8;
+            border: 1.5px solid #c8e3f3;
+        }
+        /* ===== ปุ่มล้างข้อมูล เมื่อ hover ===== */
+        .clear-btn:hover {
+            background: #f4fbff;
+            transform: translateY(-2px);
+        }
+        /* ===== รายการโน้ตที่บันทึกแล้ว ===== */
+        .mood-list {
+            margin-top: 22px;
+            display: flex;
+            flex-direction: column;
+            gap: 12px;
+        }
+        /* ===== โน้ตแต่ละชิ้น ===== */
+        .mood-item {
+            background: #f8fcff;
+            border: 1px solid #dbeef9;
+            border-radius: 16px;
+            padding: 14px 16px;
+            color: #466b84;
+            box-shadow: 0 4px 10px rgba(180, 215, 235, 0.12);
+        }
+        /* ===== ข้อความ bold ภายในรายการ ===== */
+        .mood-item strong {
+            color: #2f6d95;
+        }
+        /* ===== ปุ่มลอยเปิดกล่องบันทึกอารมณ์ (Fixed Button) ===== */
+        .open-mood-btn {
+            position: fixed;
+            right: 30px;
+            bottom: 105px; /* ขยับขึ้นจากปุ่ม notes */
+            width: 60px;
+            height: 60px;
+            border: none;
+            border-radius: 50%;
+            background: linear-gradient(180deg, #bfe5ff, #9cf2aa);
+            color: #8ffd80;
+            font-size: 28px;
+            cursor: pointer;
+            box-shadow: 0 8px 20px rgba(188, 236, 125, 0.35);
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;         /* จัดไอคอนให้อยู่ตรงกลาง */
+            transition: all 0.25s ease;
+            z-index: 999;                     /* ลอยอยู่เหนือ element อื่นๆ */
+        }
+        /* ===== ปุ่มลอย เมื่อ hover ===== */
+        .open-mood-btn:hover {
+            transform: translateY(-3px) scale(1.05);
+            box-shadow: 0 12px 24px rgba(120, 180, 220, 0.45);
+        }
+
+    /* ===== สิ้นสุดกล่องมูท ===== */
