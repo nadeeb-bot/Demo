@@ -1,0 +1,402 @@
+/* ===== รีเซ็ต CSS พื้นฐาน ===== */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        /* ===== ตั้งค่าฟอนต์และพื้นหลังทั้งหน้า ===== */
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background-color: #f5ede0;
+            min-height: 100vh;
+            overflow-x: hidden;
+        }
+
+        /* ===== รูปร่างกายพื้นหลังซ้าย (ตกแต่ง) ===== */
+        .bg-body-left {
+            position: fixed;
+            left: -30px;
+            top: 50%;
+            transform: translateY(-50%);
+            width: 220px;
+            height: 600px;
+            opacity: 0.12;
+            z-index: 0;
+        }
+
+        /* ===== รูปร่างกายพื้นหลังขวา (ตกแต่ง) ===== */
+        .bg-body-right {
+            position: fixed;
+            right: -30px;
+            top: 50%;
+            transform: translateY(-50%);
+            width: 220px;
+            height: 600px;
+            opacity: 0.12;
+            z-index: 0;
+        }
+
+        /* ===== wrapper หลักของเนื้อหาทั้งหมด ===== */
+        .wrapper {
+            position: relative;
+            z-index: 1;
+            max-width: 1300px;
+            margin: 0 auto;
+            padding: 20px 40px;
+        }
+
+        /* ===== แถบนำทาง (Navbar) ===== */
+        .navbar {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 15px 0;
+            margin-bottom: 20px;
+        }
+
+        /* ===== ส่วนซ้ายของ Navbar (โลโก้ + ชื่อ) ===== */
+        .navbar-left {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+            cursor: pointer;
+            text-decoration: none;
+        }
+
+        /* ===== ไอคอนโลโก้กระดูก ===== */
+        .logo-icon {
+            width: 60px;
+            height: 60px;
+        }
+
+        /* ===== ชื่อเว็บไซต์ ===== */
+        .site-title {
+            font-size: 2.4rem;
+            font-weight: 700;
+            color: #5a8fa3;
+            letter-spacing: 1px;
+        }
+
+        /* ===== ส่วนขวาของ Navbar (Profile + Search) ===== */
+        .navbar-right {
+            display: flex;
+            align-items: center;
+            background-color: rgba(255, 255, 255, 0.7);
+            border-radius: 50px;
+            padding: 12px 25px;
+            gap: 10px;
+            backdrop-filter: blur(5px);
+            box-shadow: 0 2px 10px rgba(0,0,0,0.08);
+        }
+
+        /* ===== ไอคอนและข้อความใน Navbar ===== */
+        .nav-icon-text {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            color: #5a8fa3;
+            font-size: 1rem;
+            font-weight: 600;
+            letter-spacing: 1px;
+            cursor: pointer;
+        }
+
+        /* ===== เส้นคั่นระหว่าง Profile และ Search ===== */
+        .nav-divider {
+            color: #aaa;
+            font-size: 1.1rem;
+            padding: 0 5px;
+        }
+
+        /* ===== แถบแท็บเมนูหลัก ===== */
+        .tab-bar {
+            background-color: rgba(255, 255, 255, 0.55);
+            border-radius: 50px;
+            padding: 8px 10px;
+            display: flex;
+            align-items: center;
+            justify-content: space-around;
+            margin-bottom: 30px;
+            backdrop-filter: blur(8px);
+            box-shadow: 0 2px 10px rgba(0,0,0,0.06);
+        }
+
+        /* ===== ปุ่มแท็บแต่ละปุ่ม ===== */
+        .tab-btn {
+            padding: 12px 30px;
+            border: none;
+            border-radius: 50px;
+            cursor: pointer;
+            font-size: 1rem;
+            font-weight: 700;
+            color: #5a8fa3;
+            background: transparent;
+            letter-spacing: 1px;
+            transition: all 0.3s ease;
+        }
+
+        /* ===== ปุ่มแท็บที่ถูกเลือก (active) ===== */
+        .tab-btn.active {
+            background: linear-gradient(180deg, #c8e6f5 0%, #a8d4ee 100%);
+            color: #2e6a8a;
+            box-shadow: 0 3px 10px rgba(100, 180, 220, 0.4);
+        }
+
+        /* ===== เอฟเฟกต์ hover ของปุ่มแท็บ ===== */
+        .tab-btn:hover:not(.active) {
+            background-color: rgba(200, 230, 245, 0.4);
+        }
+
+        /* ===== กล่องเนื้อหาหลัก ===== */
+        .content-card {
+            background-color: rgba(255, 255, 255, 0.75);
+            border-radius: 25px;
+            padding: 35px 40px;
+            box-shadow: 0 4px 20px rgba(0,0,0,0.08);
+            backdrop-filter: blur(10px);
+            min-height: 500px;
+        }
+
+        /* ===== ส่วนหัวของหน้า Test (ชื่อหัวข้อ + ปุ่มย้อนกลับ) ===== */
+        .test-header {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            margin-bottom: 30px;
+        }
+
+        /* ===== กลุ่มชื่อหัวข้อ + ไอคอน ===== */
+        .test-title-group {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+        }
+
+        /* ===== ไอคอนหน้าชื่อหัวข้อ Test ===== */
+        .test-title-icon {
+            width: 45px;
+            height: 45px;
+            background: linear-gradient(135deg, #a8d8ea, #7ec8e3);
+            border-radius: 12px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            box-shadow: 0 3px 10px rgba(100, 180, 220, 0.3);
+        }
+
+        /* ===== ชื่อหัวข้อ Test ===== */
+        .test-title {
+            font-size: 1.8rem;
+            font-weight: 700;
+            color: #2e6a8a;
+        }
+
+        /* ===== คำอธิบายใต้ชื่อหัวข้อ ===== */
+        .test-subtitle {
+            font-size: 0.95rem;
+            color: #888;
+            margin-top: 3px;
+        }
+
+        /* ===== ปุ่มย้อนกลับหน้าหลัก ===== */
+        .back-btn {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            padding: 12px 25px;
+            background: linear-gradient(135deg, #e8f4f8, #d0eaf5);
+            border: 1.5px solid #a8d4ee;
+            border-radius: 50px;
+            color: #2e6a8a;
+            font-size: 0.95rem;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            text-decoration: none;
+            letter-spacing: 0.5px;
+        }
+
+        /* ===== เอฟเฟกต์ hover ปุ่มย้อนกลับ ===== */
+        .back-btn:hover {
+            background: linear-gradient(135deg, #c8e6f5, #a8d4ee);
+            box-shadow: 0 4px 15px rgba(100, 180, 220, 0.35);
+            transform: translateX(-3px);
+        }
+
+        /* ===== เส้นคั่นใต้หัวข้อ ===== */
+        .divider {
+            width: 100%;
+            height: 1.5px;
+            background: linear-gradient(90deg, #a8d4ee, transparent);
+            margin-bottom: 30px;
+            border-radius: 50px;
+        }
+
+        /* ===== กริดแสดงหมวดหมู่ทั้งหมด ===== */
+        .category-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 18px;
+        }
+
+        /* ===== การ์ดหมวดหมู่แต่ละอัน ===== */
+        .category-card {
+            background: linear-gradient(135deg, #ffffff, #f0f8fc);
+            border: 1.5px solid #d0eaf5;
+            border-radius: 18px;
+            padding: 22px 20px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            display: flex;
+            align-items: center;
+            gap: 15px;
+            position: relative;
+            overflow: hidden;
+        }
+
+        /* ===== เอฟเฟกต์ก่อนการ์ด (แถบสีซ้าย) ===== */
+        .category-card::before {
+            content: '';
+            position: absolute;
+            left: 0;
+            top: 0;
+            width: 5px;
+            height: 100%;
+            background: linear-gradient(180deg, #7ec8e3, #a8d4ee);
+            border-radius: 18px 0 0 18px;
+            opacity: 0;
+            transition: opacity 0.3s ease;
+        }
+
+        /* ===== เอฟเฟกต์ hover การ์ดหมวดหมู่ ===== */
+        .category-card:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 8px 25px rgba(100, 180, 220, 0.25);
+            border-color: #7ec8e3;
+            background: linear-gradient(135deg, #f0f8fc, #e0f2f9);
+        }
+
+        /* ===== แสดงแถบสีซ้ายเมื่อ hover ===== */
+        .category-card:hover::before {
+            opacity: 1;
+        }
+
+        /* ===== กล่องไอคอนของการ์ดหมวดหมู่ ===== */
+        .card-icon-box {
+            width: 50px;
+            height: 50px;
+            border-radius: 14px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.5rem;
+            flex-shrink: 0;
+            transition: transform 0.3s ease;
+        }
+
+        /* ===== เอฟเฟกต์ hover ไอคอน ===== */
+        .category-card:hover .card-icon-box {
+            transform: scale(1.1) rotate(5deg);
+        }
+
+        /* ===== ข้อความในการ์ดหมวดหมู่ ===== */
+        .card-text {
+            flex: 1;
+        }
+
+        /* ===== ชื่อหมวดหมู่ ===== */
+        .card-title {
+            font-size: 1rem;
+            font-weight: 700;
+            color: #2e6a8a;
+            margin-bottom: 4px;
+            line-height: 1.3;
+        }
+
+        /* ===== จำนวนข้อสอบในหมวดหมู่ ===== */
+        .card-count {
+            font-size: 0.82rem;
+            color: #88b8cc;
+            font-weight: 500;
+        }
+
+        /* ===== ลูกศรด้านขวาของการ์ด ===== */
+        .card-arrow {
+            color: #aad4e8;
+            font-size: 1.2rem;
+            transition: transform 0.3s ease, color 0.3s ease;
+        }
+
+        /* ===== เอฟเฟกต์ hover ลูกศร ===== */
+        .category-card:hover .card-arrow {
+            transform: translateX(5px);
+            color: #5aabce;
+        }
+
+        /* ===== สีพื้นหลังไอคอนแต่ละหมวดหมู่ ===== */
+        .icon-blue   { background: linear-gradient(135deg, #daf0f9, #b8e0f5); }
+        .icon-green  { background: linear-gradient(135deg, #d9f5e8, #b4e8d0); }
+        .icon-purple { background: linear-gradient(135deg, #ece3ff, #d5c5ff); }
+        .icon-orange { background: linear-gradient(135deg, #fff0de, #ffd9a8); }
+        .icon-pink   { background: linear-gradient(135deg, #ffe3ee, #ffbdd5); }
+        .icon-teal   { background: linear-gradient(135deg, #d9f5f2, #a8e8e3); }
+        .icon-yellow { background: linear-gradient(135deg, #fffbd9, #fff0a0); }
+        .icon-red    { background: linear-gradient(135deg, #ffe3e3, #ffb8b8); }
+        .icon-indigo { background: linear-gradient(135deg, #e3e8ff, #b8c5ff); }
+        .icon-cyan   { background: linear-gradient(135deg, #d9f0ff, #a0d8f5); }
+        .icon-lime   { background: linear-gradient(135deg, #efffda, #ccf5a0); }
+        .icon-rose   { background: linear-gradient(135deg, #ffeef5, #ffcce0); }
+        .icon-amber  { background: linear-gradient(135deg, #fff5d9, #ffe0a0); }
+        
+        /* ===== แถบสถิติรวมด้านล่าง ===== */
+        .stats-bar {
+            margin-top: 30px;
+            background: linear-gradient(135deg, #e8f6fc, #d0edf8);
+            border-radius: 18px;
+            padding: 18px 30px;
+            display: flex;
+            align-items: center;
+            justify-content: space-around;
+            border: 1px solid #b8dff0;
+        }
+
+        /* ===== แต่ละรายการสถิติ ===== */
+        .stat-item {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 5px;
+        }
+
+        /* ===== ตัวเลขสถิติ ===== */
+        .stat-number {
+            font-size: 2rem;
+            font-weight: 800;
+            color: #2e6a8a;
+        }
+
+        /* ===== ป้ายกำกับสถิติ ===== */
+        .stat-label {
+            font-size: 0.85rem;
+            color: #7aafca;
+            font-weight: 500;
+        }
+
+        /* ===== เส้นคั่นระหว่างสถิติ ===== */
+        .stat-divider {
+            width: 1.5px;
+            height: 50px;
+            background-color: #b8dff0;
+            border-radius: 50px;
+        }
+        .logo-icon{
+			font-size: 50px;
+			display: inline-block;
+			animation: float 3s ease-in-out infinite;
+		}
+
+		@keyframes float {
+			0%, 100% { transform: translateY(0); }
+			50%      { transform: translateY(-12px); }
+		}
